@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Mail, Github, MapPin, GraduationCap, Code, ChevronDown, Globe, Briefcase } from 'lucide-react';
-import Profile from "./assets/dhanush.jpeg"
+import { Mail, Github, MapPin, GraduationCap, Code, ChevronDown, Globe, Briefcase, ExternalLink } from 'lucide-react';
+import Profile from "./assets/dhanush.png"
 
 const translations = {
   de: {
@@ -28,31 +28,31 @@ const translations = {
 
   experience: {
     title: 'Berufserfahrung',
-    description: 'Mehr als 3 Jahre Erfahrung in der Full-Stack-Entwicklung mit Schwerpunkt auf React, Next.js, Node.js, REST-APIs und Cloud-Deployments.',
+    description: 'Mehr als 3 Jahre Erfahrung in der Full-Stack-Entwicklung bei Jeeves Information Systems (Forterro) mit Schwerpunkt auf React, Next.js, Node.js, REST-APIs und Cloud-Deployments.',
     download: 'Lebenslauf herunterladen',
     jobs: [
       {
-        title: 'Associate Full-Stack Developer',
-        company: 'Company Name',
-        duration: 'MM/YYYY - MM/YYYY',
-        points: [
-          'Entwickelte skalierbare, responsive Webanwendungen mit React.js, Next.js, TypeScript und Tailwind CSS und senkte durch SSR/SSG die Ladezeiten um etwa 40 %.',
-          'Entwickelte wiederverwendbare, typsichere UI-Komponenten und dynamische Formulare mit React Hooks, Redux Toolkit und Zustand für eine modulare und wartbare Codebasis.',
-          'Reduzierte die Seitenladezeit von 3 auf 1 Sekunde durch die Optimierung von API-Antworten und verbesserte damit Reaktionsgeschwindigkeit und Nutzererlebnis.',
-          'Schrieb automatisierte Tests mit Jest und React Testing Library, erreichte 93 % Unit-Test-Abdeckung und reduzierte Produktionsfehler.',
-          'Arbeitete mit Design, QA und Product Ownern zusammen, um pixelgenaue, Figma-konforme Oberflächen zu liefern und User Stories in agilen Sprints zu schärfen.'
-        ]
-      },
-      {
         title: 'Software Engineer – Full Stack',
-        company: 'Company Name',
-        duration: 'MM/YYYY - MM/YYYY',
+        company: 'Jeeves Information Systems (Forterro)',
+        duration: '06/2023 - 01/2025',
         points: [
           'Entwickelte und betreute Full-Stack-Anwendungen auf Enterprise-Niveau mit MERN, Next.js und NestJS sowie PostgreSQL und Redis und baute skalierbare REST-APIs und Backend-Services.',
           'Baute ein Admin-Panel für Rechnungserstellung, Auftragsverfolgung, Zahlungsverwaltung und Nutzerüberwachung sowie Echtzeit-Dashboards für Live-Tracking und Analysen.',
           'Integrierte Drittanbieter-Dienste wie Zahlungsanbieter, SMS-/E-Mail-APIs und Cloud-Speicher und implementierte sichere Authentifizierung mit Okta SSO und OAuth.',
           'Migrierte eine monolithische Anwendung auf eine Micro-Frontend-Architektur mit Module Federation, reduzierte die Bundle-Größe um 50 % und verbesserte Deployment-Geschwindigkeit und Skalierbarkeit.',
           'Verantwortete AWS-Deployments und CI/CD-Pipelines mit GitHub Actions, Docker und SonarQube für konsistentere Deployments und weniger manuelle Release-Schritte.'
+        ]
+      },
+      {
+        title: 'Associate Full-Stack Developer',
+        company: 'Jeeves Information Systems (Forterro)',
+        duration: '05/2022 - 06/2023',
+        points: [
+          'Entwickelte skalierbare, responsive Webanwendungen mit React.js, Next.js, TypeScript und Tailwind CSS und senkte durch SSR/SSG die Ladezeiten um etwa 40 %.',
+          'Entwickelte wiederverwendbare, typsichere UI-Komponenten und dynamische Formulare mit React Hooks, Redux Toolkit und Zustand für eine modulare und wartbare Codebasis.',
+          'Reduzierte die Seitenladezeit von 3 auf 1 Sekunde durch die Optimierung von API-Antworten und verbesserte damit Reaktionsgeschwindigkeit und Nutzererlebnis.',
+          'Schrieb automatisierte Tests mit Jest und React Testing Library, erreichte 93 % Unit-Test-Abdeckung und reduzierte Produktionsfehler.',
+          'Arbeitete mit Design, QA und Product Ownern zusammen, um pixelgenaue, Figma-konforme Oberflächen zu liefern und User Stories in agilen Sprints zu schärfen.'
         ]
       }
     ]
@@ -63,7 +63,7 @@ const translations = {
     items: [
       {
         university: 'Hochschule Hof, University of Applied Sciences',
-        year: '2024 - Heute',
+        year: '2026 - 2028',
         degree: 'Master in Artificial Intelligence und Robotik'
       },
       {
@@ -76,26 +76,31 @@ const translations = {
 
   projects: {
     title: 'Ausgewählte Projekte',
+    viewCode: 'Auf GitHub ansehen',
     items: [
       {
         title: 'Design System & Component Library',
         description: 'Eine wiederverwendbare React-Komponentenbibliothek auf Basis von in Figma definierten Design Tokens, veröffentlicht als versioniertes npm-Paket mit generiertem Tailwind-Preset. Sie ist in Storybook dokumentiert, auf WCAG-2.2-AA-Barrierefreiheit für Tastatur und Screenreader ausgelegt und umfasst visuelle Regressionstests, eine handgeschriebene CSS-Architektur sowie strikte Linting- und automatisierte Release-Pipelines.',
-        stack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Storybook', 'Figma', 'Playwright', 'ESLint', 'GitHub Actions', 'npm']
+        stack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Storybook', 'Figma', 'Playwright', 'ESLint', 'GitHub Actions', 'npm'],
+        url: 'https://github.com/dhanushpv91/Design-System-Component-Library'
       },
       {
         title: 'Banking & Transaction Platform',
         description: 'Eine Full-Stack-Bankingplattform mit Double-Entry-Ledger, ACID-Transaktionen und nebenläufigkeitssicheren Überweisungen. Sie nutzt Idempotency Keys, ein Transactional Outbox und Kafka-Event-Verarbeitung, dazu eine Betrugserkennung mit Regeln, die Compliance-Mitarbeitende in der Oberfläche bearbeiten können, einen Freigabe-Workflow für hohe Überweisungen, nächtliche Abstimmung und eine vollständige Audit-Historie.',
-        stack: ['Angular', 'RxJS', 'Angular Material', 'Spring Boot', 'PostgreSQL', 'Kafka', 'JUnit', 'Jasmine/Karma', 'Cypress', 'Testcontainers', 'Docker', 'GitLab CI']
+        stack: ['Angular', 'RxJS', 'Angular Material', 'Spring Boot', 'PostgreSQL', 'Kafka', 'JUnit', 'Jasmine/Karma', 'Cypress', 'Testcontainers', 'Docker', 'GitLab CI'],
+        url: 'https://github.com/dhanushpv91/Banking-Transaction-Platform'
       },
       {
         title: 'Multi-Tenant Project Management SaaS',
         description: 'Eine mandantenfähige Projektmanagement-SaaS mit Mandantentrennung über PostgreSQL Row-Level Security, benutzerdefinierten Rollen und Berechtigungen sowie Scoping auf Organisationsebene. Sie umfasst Echtzeit-Zusammenarbeit über WebSockets mit Redis Pub/Sub, optimistische UI-Updates, einen Task-Abhängigkeitsgraphen mit Zykluserkennung, Hintergrundjobs, Rate Limiting, Stripe-Sandbox-Abrechnung mit Webhooks und ein Audit-Log.',
-        stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React Query', 'NestJS', 'Prisma', 'PostgreSQL', 'Redis', 'Vitest', 'Playwright', 'Docker', 'AWS', 'Vercel', 'GitHub Actions']
+        stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React Query', 'NestJS', 'Prisma', 'PostgreSQL', 'Redis', 'Vitest', 'Playwright', 'Docker', 'AWS', 'Vercel', 'GitHub Actions'],
+        url: 'https://github.com/dhanushpv91/Multi-Tenant-Project-Management-SaaS'
       },
       {
         title: 'Real-Time Logistics & Fleet Platform',
         description: 'Eine Logistik- und Flottenplattform, die GPS-Daten in hohem Volumen verarbeitet, Fahrzeuge live über WebSockets verfolgt und geografische Abfragen mit PostGIS ausführt. Hinzu kommen Routenoptimierung mit OR-Tools, Prognose der Lieferzeiten, Abgleich von Frachtrechnungen mit tatsächlichen Lieferungen sowie ein virtualisiertes, barrierefreies Analyse-Dashboard, ergänzt durch Lasttests und strukturierte Observability.',
-        stack: ['React', 'TypeScript', 'Vite', 'FastAPI', 'SQLAlchemy', 'PostgreSQL', 'PostGIS', 'Celery', 'Redis', 'OR-Tools', 'pytest', 'Playwright', 'Docker Compose']
+        stack: ['React', 'TypeScript', 'Vite', 'FastAPI', 'SQLAlchemy', 'PostgreSQL', 'PostGIS', 'Celery', 'Redis', 'OR-Tools', 'pytest', 'Playwright', 'Docker Compose'],
+        url: 'https://github.com/dhanushpv91/Real-Time-Logistics-Fleet-Platform'
       }
     ]
   },
@@ -109,7 +114,7 @@ const translations = {
     button: 'Nachricht senden'
   }
 },
-  
+
   en: {
   nav: {
     about: 'About',
@@ -134,31 +139,31 @@ const translations = {
 
   experience: {
     title: 'Professional Experience',
-    description: '3+ years of experience in full-stack development, with a focus on React, Next.js, Node.js, REST APIs and cloud deployments.',
+    description: '3+ years of experience in full-stack development at Jeeves Information Systems (Forterro), with a focus on React, Next.js, Node.js, REST APIs and cloud deployments.',
     download: 'Download Resume',
     jobs: [
       {
-        title: 'Associate Full-Stack Developer',
-        company: 'Company Name',
-        duration: 'MM/YYYY - MM/YYYY',
-        points: [
-          'Engineered scalable, responsive web applications using React.js, Next.js, TypeScript and Tailwind CSS, applying SSR/SSG to reduce load times by approximately 40%.',
-          'Developed reusable, type-safe UI components and dynamic forms with React Hooks, Redux Toolkit and Zustand, keeping the codebase modular and easy to maintain.',
-          'Reduced page load time from 3 to 1 second by optimizing API responses, improving interaction speed and overall user experience.',
-          'Wrote automated tests with Jest and React Testing Library, reaching 93% unit test coverage and reducing production bugs.',
-          'Collaborated with designers, QA and product owners to deliver pixel-perfect, Figma-aligned interfaces and refine user stories within Agile sprints.'
-        ]
-      },
-      {
         title: 'Software Engineer – Full Stack',
-        company: 'Company Name',
-        duration: 'MM/YYYY - MM/YYYY',
+        company: 'Jeeves Information Systems (Forterro)',
+        duration: '06/2023 - 01/2025',
         points: [
           'Engineered and maintained enterprise-grade full-stack applications using MERN, Next.js and NestJS with PostgreSQL and Redis, building scalable REST APIs and backend services.',
           'Built an admin panel for invoice creation, order tracking, payment management and user monitoring, plus real-time dashboards for live tracking and analytics.',
           'Integrated third-party services including payment gateways, SMS/email APIs and cloud storage, and implemented secure authentication with Okta SSO and OAuth.',
           'Migrated a monolithic application to a micro frontend architecture using Module Federation, cutting bundle size by 50% and improving deployment speed and scalability.',
           'Managed AWS deployments and CI/CD pipelines with GitHub Actions, Docker and SonarQube, improving deployment consistency and reducing manual release steps.'
+        ]
+      },
+      {
+        title: 'Associate Full-Stack Developer',
+        company: 'Jeeves Information Systems (Forterro)',
+        duration: '05/2022 - 06/2023',
+        points: [
+          'Engineered scalable, responsive web applications using React.js, Next.js, TypeScript and Tailwind CSS, applying SSR/SSG to reduce load times by approximately 40%.',
+          'Developed reusable, type-safe UI components and dynamic forms with React Hooks, Redux Toolkit and Zustand, keeping the codebase modular and easy to maintain.',
+          'Reduced page load time from 3 to 1 second by optimizing API responses, improving interaction speed and overall user experience.',
+          'Wrote automated tests with Jest and React Testing Library, reaching 93% unit test coverage and reducing production bugs.',
+          'Collaborated with designers, QA and product owners to deliver pixel-perfect, Figma-aligned interfaces and refine user stories within Agile sprints.'
         ]
       }
     ]
@@ -169,7 +174,7 @@ const translations = {
     items: [
       {
         university: 'Hochschule Hof, University of Applied Sciences',
-        year: '2024 - Present',
+        year: '2026 - 2028',
         degree: 'Master’s in Artificial Intelligence and Robotics'
       },
       {
@@ -182,26 +187,31 @@ const translations = {
 
   projects: {
     title: 'Selected Projects',
+    viewCode: 'View on GitHub',
     items: [
       {
         title: 'Design System & Component Library',
         description: 'A reusable React component library built from design tokens defined in Figma and published as a versioned npm package with a generated Tailwind preset. It is documented in Storybook and designed for WCAG 2.2 AA keyboard and screen-reader accessibility, with visual regression tests, a hand-written CSS architecture and a strict linting and automated release pipeline.',
-        stack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Storybook', 'Figma', 'Playwright', 'ESLint', 'GitHub Actions', 'npm']
+        stack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Storybook', 'Figma', 'Playwright', 'ESLint', 'GitHub Actions', 'npm'],
+        url: 'https://github.com/dhanushpv91/Design-System-Component-Library'
       },
       {
         title: 'Banking & Transaction Platform',
         description: 'A full-stack banking platform with a double-entry ledger, ACID transactions and concurrency-safe transfers. It uses idempotency keys, a transactional outbox and Kafka event processing, together with a fraud engine whose rules compliance officers can edit in the UI, an approval workflow for high-value transfers, nightly reconciliation and a full audit trail.',
-        stack: ['Angular', 'RxJS', 'Angular Material', 'Spring Boot', 'PostgreSQL', 'Kafka', 'JUnit', 'Jasmine/Karma', 'Cypress', 'Testcontainers', 'Docker', 'GitLab CI']
+        stack: ['Angular', 'RxJS', 'Angular Material', 'Spring Boot', 'PostgreSQL', 'Kafka', 'JUnit', 'Jasmine/Karma', 'Cypress', 'Testcontainers', 'Docker', 'GitLab CI'],
+        url: 'https://github.com/dhanushpv91/Banking-Transaction-Platform'
       },
       {
         title: 'Multi-Tenant Project Management SaaS',
         description: 'A multi-tenant project management SaaS with tenant isolation enforced through PostgreSQL row-level security, custom roles and permissions, and organization-level scoping. It includes real-time collaboration over WebSockets with Redis pub/sub, optimistic UI updates, a task dependency graph with cycle detection, background jobs, rate limiting, Stripe sandbox billing with webhooks and an audit log.',
-        stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React Query', 'NestJS', 'Prisma', 'PostgreSQL', 'Redis', 'Vitest', 'Playwright', 'Docker', 'AWS', 'Vercel', 'GitHub Actions']
+        stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React Query', 'NestJS', 'Prisma', 'PostgreSQL', 'Redis', 'Vitest', 'Playwright', 'Docker', 'AWS', 'Vercel', 'GitHub Actions'],
+        url: 'https://github.com/dhanushpv91/Multi-Tenant-Project-Management-SaaS'
       },
       {
         title: 'Real-Time Logistics & Fleet Platform',
         description: 'A logistics and fleet platform that ingests high-volume GPS data, shows live vehicle tracking over WebSockets and runs geospatial queries with PostGIS. It adds route optimization with OR-Tools, delivery ETA prediction, freight invoice reconciliation against actual deliveries and a virtualized, accessible analytics dashboard, supported by load testing and structured observability.',
-        stack: ['React', 'TypeScript', 'Vite', 'FastAPI', 'SQLAlchemy', 'PostgreSQL', 'PostGIS', 'Celery', 'Redis', 'OR-Tools', 'pytest', 'Playwright', 'Docker Compose']
+        stack: ['React', 'TypeScript', 'Vite', 'FastAPI', 'SQLAlchemy', 'PostgreSQL', 'PostGIS', 'Celery', 'Redis', 'OR-Tools', 'pytest', 'Playwright', 'Docker Compose'],
+        url: 'https://github.com/dhanushpv91/Real-Time-Logistics-Fleet-Platform'
       }
     ]
   },
@@ -215,7 +225,7 @@ const translations = {
     button: 'Send Message'
   }
 }
-  
+
 };
 
 export default function Portfolio() {
@@ -386,7 +396,7 @@ export default function Portfolio() {
                   {t.hero.cta}
                 </a>
                 <a
-                  href="https://github.com/Dhanush-pv"
+                  href="https://github.com/dhanushpv91"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-3 border-2 border-gray-300 text-gray-900 rounded-full font-medium hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
@@ -399,7 +409,7 @@ export default function Portfolio() {
                 className="flex gap-4 mt-8"
               >
                 <a
-                  href="https://github.com/Dhanush-pv"
+                  href="https://github.com/dhanushpv91"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-gray-100 hover:bg-blue-100 rounded-full transition-all duration-300 hover:scale-110"
@@ -558,7 +568,7 @@ export default function Portfolio() {
               className="mt-12 flex gap-4"
             >
               <a
-                href="https://drive.google.com/file/d/1yCURBN3cfzdoSf3cCkwjB_JDH1WU1rkN/view?usp=sharing"
+                href="https://drive.google.com/file/d/1chZ4-b1b5XbAopmhZrQ5hgZf5bXYQNKi/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all duration-300 hover:scale-105"
@@ -642,6 +652,16 @@ export default function Portfolio() {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h3>
                   <p className="text-gray-600 mb-5 leading-relaxed">{project.description}</p>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mb-5 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    <Github size={16} />
+                    {t.projects.viewCode}
+                    <ExternalLink size={14} />
+                  </a>
                   <div className="flex flex-wrap gap-2">
                     {project.stack.map((technology) => (
                       <span
@@ -772,17 +792,17 @@ export default function Portfolio() {
             className="flex flex-col md:flex-row items-center justify-between gap-6"
           >
             <div className="text-center md:text-left">
-              <p className="text-2xl font-bold text-gray-900 mb-2">Dhanush</p>
+              <p className="text-2xl font-bold text-gray-900 mb-2">Dhanush Palani Vijay Kumari</p>
               <p className="text-gray-600">
                 {language === 'de' 
-                  ? 'Entwicklerin, Designerin & Problemlöserin' 
-                  : 'Developer, Designer & Problem Solver'}
+                  ? 'Full-Stack-Entwickler & Problemlöser' 
+                  : 'Full-Stack Developer & Problem Solver'}
               </p>
             </div>
 
             <div className="flex gap-4">
               <a
-                href="https://github.com/Dhanush-pv"
+                href="https://github.com/dhanushpv91"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white hover:bg-blue-50 rounded-full transition-all duration-300 hover:scale-110 shadow-sm"
@@ -805,7 +825,7 @@ export default function Portfolio() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm"
           >
-            <p>© 2025 Dhanush Palani Vijay Kumari. {language === 'de' ? 'Alle Rechte vorbehalten.' : 'All rights reserved.'}</p>
+            <p>© 2026 Dhanush Palani Vijay Kumari. {language === 'de' ? 'Alle Rechte vorbehalten.' : 'All rights reserved.'}</p>
           </motion.div>
         </div>
       </footer>
