@@ -36,11 +36,13 @@ const translations = {
         company: 'Jeeves Information Systems (Forterro)',
         duration: '06/2023 - 01/2025',
         points: [
-          'Entwickelte und betreute Full-Stack-Anwendungen auf Enterprise-Niveau mit MERN, Next.js und NestJS sowie PostgreSQL und Redis und baute skalierbare REST-APIs und Backend-Services.',
-          'Baute ein Admin-Panel für Rechnungserstellung, Auftragsverfolgung, Zahlungsverwaltung und Nutzerüberwachung sowie Echtzeit-Dashboards für Live-Tracking und Analysen.',
-          'Integrierte Drittanbieter-Dienste wie Zahlungsanbieter, SMS-/E-Mail-APIs und Cloud-Speicher und implementierte sichere Authentifizierung mit Okta SSO und OAuth.',
-          'Migrierte eine monolithische Anwendung auf eine Micro-Frontend-Architektur mit Module Federation, reduzierte die Bundle-Größe um 50 % und verbesserte Deployment-Geschwindigkeit und Skalierbarkeit.',
-          'Verantwortete AWS-Deployments und CI/CD-Pipelines mit GitHub Actions, Docker und SonarQube für konsistentere Deployments und weniger manuelle Release-Schritte.'
+          'Entwicklung mandantenfähiger ERP-Module (CRM, HR, Lager, Vertrieb) mit kundenspezifischer Domain-Zuordnung und getrennten Datenbanken für über 1.000 aktive Nutzer.',
+    'Reduzierung der Frontend-Bundle-Größe um 82 % (15,6 MB auf 2,8 MB) durch Lazy Loading, Code Splitting, Bereinigung von Abhängigkeiten und Caching; Lighthouse-Werte um über 36 % verbessert und Ladezeiten in zentralen Modulen deutlich verkürzt.',
+    'Entwicklung eines Wareneingangsberichts, der Eingangsrechnungen für über 250 Wareneingänge automatisch erstellt; Ursache des Redis-Fehlers „Connection Refused" zwischen Frontend und Backend gefunden und behoben.',
+    'Aufbau und Pflege von REST-API-Schnittstellen zwischen dem ERP und einem externen Händlerportal (Kundenaufträge, Ausgangsrechnungen, Spesenabrechnungen, Mitarbeiterabgleich) mit idempotenter Wiederholungslogik und strukturiertem Audit-Logging.',
+    'Konzeption eines Materialverbrauchsberichts über fünf Transaktionstypen auf Basis von Hauptbuchbuchungen, abgeglichen mit den Produktionsdaten eines vollständigen Geschäftsjahres.',
+    'Konzeption einer dynamischen Kalkulations- und Preisengine, die Produktpreise anhand mehrerer Kostenparameter und aktueller Geschäftsbedingungen berechnet.',
+    'Aufbau von CI/CD-Pipelines mit CircleCI (Deployment-Zeit um 60 % verkürzt) und Betrieb von AWS-ECS-Deployments per CLI mit Echtzeit-Monitoring und Rollback-Strategien.'
         ]
       },
       {
@@ -48,11 +50,10 @@ const translations = {
         company: 'Jeeves Information Systems (Forterro)',
         duration: '05/2022 - 06/2023',
         points: [
-          'Entwickelte skalierbare, responsive Webanwendungen mit React.js, Next.js, TypeScript und Tailwind CSS und senkte durch SSR/SSG die Ladezeiten um etwa 40 %.',
-          'Entwickelte wiederverwendbare, typsichere UI-Komponenten und dynamische Formulare mit React Hooks, Redux Toolkit und Zustand für eine modulare und wartbare Codebasis.',
-          'Reduzierte die Seitenladezeit von 3 auf 1 Sekunde durch die Optimierung von API-Antworten und verbesserte damit Reaktionsgeschwindigkeit und Nutzererlebnis.',
-          'Schrieb automatisierte Tests mit Jest und React Testing Library, erreichte 93 % Unit-Test-Abdeckung und reduzierte Produktionsfehler.',
-          'Arbeitete mit Design, QA und Product Ownern zusammen, um pixelgenaue, Figma-konforme Oberflächen zu liefern und User Stories in agilen Sprints zu schärfen.'
+          'Entwicklung von ERP-Modulen für die Fertigung (Einkauf, Lager, Produktion, Qualitätskontrolle, Versand, Finanzen) mit React.js, TypeScript, Redux und REST-APIs, inklusive dynamischer Tabellen, Suche, Filter, Paginierung, Reporting-Dashboards und Excel-Import/-Export.',
+    'Umsetzung von JWT-Authentifizierung, geschützten Routen und rollenbasierten Dashboards für Admin, Produktion, QC, Vertrieb und Lager; durch wiederverwendbare UI-Komponenten sieht jedes Team nur die eigenen Workflows.',
+    'Entwicklung der Module Bestellungen, Lieferantennachverfolgung, Lieferprüfung, Zahlungsverfolgung, Produktionserfassung und Materialverfolgung zur Reduzierung manueller Arbeitsschritte in Einkauf und Lager.',
+    'Umsetzung bedingter, dynamischer Formulare mit Formik und Yup sowie Integration von SheetJS und OCR-basierter Rechnungsvorausfüllung, um Eingabefehler bei der manuellen Dateneingabe zu verringern.'
         ]
       }
     ]
@@ -147,11 +148,13 @@ const translations = {
         company: 'Jeeves Information Systems (Forterro)',
         duration: '06/2023 - 01/2025',
         points: [
-          'Engineered and maintained enterprise-grade full-stack applications using MERN, Next.js and NestJS with PostgreSQL and Redis, building scalable REST APIs and backend services.',
-          'Built an admin panel for invoice creation, order tracking, payment management and user monitoring, plus real-time dashboards for live tracking and analytics.',
-          'Integrated third-party services including payment gateways, SMS/email APIs and cloud storage, and implemented secure authentication with Okta SSO and OAuth.',
-          'Migrated a monolithic application to a micro frontend architecture using Module Federation, cutting bundle size by 50% and improving deployment speed and scalability.',
-          'Managed AWS deployments and CI/CD pipelines with GitHub Actions, Docker and SonarQube, improving deployment consistency and reducing manual release steps.'
+           'Built multi-tenant ERP modules (CRM, HR, Inventory, Sales) with customer-specific domain mapping and database isolation, supporting 1000+ active users.',
+    'Reduced the frontend bundle size by 82% (15.6 MB to 2.8 MB) through lazy loading, code splitting, dependency optimization, and caching, improving Lighthouse scores by 36%+ and load times across key modules.',
+    'Developed a Purchase Receipt report that automates Purchase Invoice creation for 250+ receipts, and resolved the frontend-backend "Connection Refused" error caused by Redis that had been blocking it.',
+    'Built and maintained REST API integrations between the ERP and an external dealer portal (Sales Order, Sales Invoice, Expense Claim, Employee sync), with idempotent retry handling and structured audit logging.',
+    'Designed a Material Consumption report from scratch across five transaction types, driven by General Ledger entries and verified against a full fiscal year of production data.',
+    'Designed a dynamic costing and pricing engine that calculates product prices from multiple cost parameters and real-time business conditions.',
+    'Built CI/CD pipelines with CircleCI, reducing deployment time by 60%, and managed AWS ECS deployments through the CLI with real-time monitoring and rollback strategies.'
         ]
       },
       {
@@ -159,11 +162,10 @@ const translations = {
         company: 'Jeeves Information Systems (Forterro)',
         duration: '05/2022 - 06/2023',
         points: [
-          'Engineered scalable, responsive web applications using React.js, Next.js, TypeScript and Tailwind CSS, applying SSR/SSG to reduce load times by approximately 40%.',
-          'Developed reusable, type-safe UI components and dynamic forms with React Hooks, Redux Toolkit and Zustand, keeping the codebase modular and easy to maintain.',
-          'Reduced page load time from 3 to 1 second by optimizing API responses, improving interaction speed and overall user experience.',
-          'Wrote automated tests with Jest and React Testing Library, reaching 93% unit test coverage and reducing production bugs.',
-          'Collaborated with designers, QA and product owners to deliver pixel-perfect, Figma-aligned interfaces and refine user stories within Agile sprints.'
+           'Developed ERP modules for manufacturing operations (Procurement, Inventory, Production, Quality Control, Dispatch, Finance) using React.js, TypeScript, Redux, and REST APIs, with dynamic tables, search, filtering, pagination, reporting dashboards, and Excel import/export.',
+    'Implemented JWT authentication, protected routes, and role-based dashboards for Admin, Production, QC, Sales, and Inventory teams, using reusable UI components so each team saw only the workflows it owned.',
+    'Built the Purchase Order, Vendor Follow-Up, Delivery Verification, Payment Tracking, Production Entry, and Material Tracking modules, reducing manual operations across purchase and stores teams.',
+    'Built conditional, dynamic forms with Formik and Yup, and integrated SheetJS and OCR-based invoice auto-fill to reduce manual data-entry errors.'
         ]
       }
     ]
@@ -568,7 +570,7 @@ export default function Portfolio() {
               className="mt-12 flex gap-4"
             >
               <a
-                href="https://drive.google.com/file/d/1chZ4-b1b5XbAopmhZrQ5hgZf5bXYQNKi/view?usp=sharing"
+                href="https://drive.google.com/file/d/1L4qeY0dZS6Nh3s89_m3NXZ8Xyol9FaGF/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all duration-300 hover:scale-105"
